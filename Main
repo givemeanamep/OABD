@@ -259,22 +259,7 @@ IFarm:AddToggle({
 		end
 	end
 })
---[[Misc:AddButton({
-	Name = "Safe Zone",
-	Default = false,
-	Callback = function(Value)
-		wait()
-	tool = lplr.Character:FindFirstChildWhichIsA("Tool")
-	if tool and tool.Name ~= "Rokakaka Fruit" then
-					tool.Activated:Connect(function(act)
-						game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
-						print('oye')
-					end)
-				end
-			end
-		end
-	end
-})]]
+
 Misc:AddButton({
 	Name = "Destroy Gui!!!",
 	Callback = function()

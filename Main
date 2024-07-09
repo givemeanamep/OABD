@@ -275,16 +275,10 @@ IFarm:AddToggle({
 		end
 	end
 })]]
-
-local function GuiDestroy()
-Window:Destroy()
-end
-
-
 Misc:AddButton({
 	Name = "Destroy Gui!!!",
 	Callback = function()
-    GuiDestroy()
+    Window:Destroy()
 end    
 })
 

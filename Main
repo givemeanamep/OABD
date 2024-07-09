@@ -39,8 +39,8 @@ NPC:AddToggle({
 	Name = "Kill DIO",
 	Default = false,
 	Callback = function(Value)
-		while true do
-			if Value == true then wait(.3)
+		while true do wait(.3)
+			if Value == true then 
 				if workspace:FindFirstChild("DIO") then
 					local args = {
 						[1] = workspace.DIO:WaitForChild("Humanoid"),
@@ -61,8 +61,8 @@ NPC:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do
-			if Value == true then wait(.3)
+		while true do wait(.3)
+			if Value == true then 
 				for i,v in pairs (workspace:GetChildren()) do
 					if game.Players:GetPlayerFromCharacter(v) == nil  and v.Name ~= game.Players.LocalPlayer.Name then
 						local args = {
@@ -83,9 +83,8 @@ Plr:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do
+		while true do wait(.3)
 			if Value == true then
-				wait(.3)
 				for i,v in pairs (workspace:GetChildren()) do
 					if game.Players:GetPlayerFromCharacter(v) then
 						if v.Name ~= game.Players.LocalPlayer.Name then
@@ -110,8 +109,8 @@ Plr:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do
-			if Value == true then wait(.3)
+		while true do wait(.2)
+			if Value == true then 
 				for i,v in pairs (workspace:GetChildren()) do
 					if game.Players:GetPlayerFromCharacter(v) then
 						if v.Name ~= game.Players.LocalPlayer.Name then 
@@ -131,9 +130,8 @@ NPC:AddToggle({
 	Name = "Knock all NPC",
 	Default = false,
 	Callback = function(Value)
-		while true do
+		while true do wait(.2)
 			if Value == true then
-				wait(.3)
 				for i,v in pairs (workspace:GetChildren()) do
 					if v.Name ~= game.Players.LocalPlayer.Name then return end
 					if game.Players:GetPlayerFromCharacter(v) == nil then
@@ -155,9 +153,8 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do
+		while true do wait()
 			if Value == true then
- 				wait()
 				local LP = game.Players.LocalPlayer
 					local success, err = pcall(function()
 						for i,v in pairs(workspace:GetChildren()) do
@@ -177,10 +174,9 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do
+		while true do wait()
 			if Value == true then
 				local LP = game.Players.LocalPlayer
-				 wait()
 					local success, err = pcall(function()
 						for i,v in pairs(workspace:GetChildren()) do
 							if v:IsA("Tool") and v.Name ~= "Arrow" and v.Name ~= "Rokakaka Fruit" then
@@ -198,8 +194,8 @@ SFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do
-			if Value == true then wait()
+		while true do wait()
+			if Value == true then
 				if lplr.Character:FindFirstChild("Arrow") then 
 					if lplr.Character.Arrow:IsA("Tool") then
 						lplr.Arrow.Activated:Connect(function(on)
@@ -224,7 +220,7 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do
+		while true do wait()
 			if Value == true then
 				wait()
 				tool = lplr.Character:FindFirstChildWhichIsA("Tool")
@@ -244,8 +240,8 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do
-			if Value == true then
+		while true do wait()
+			if Value == true then 
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Banknote") then
 					for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
 						if v.Name == 'Banknote' and v:IsA("Tool") then

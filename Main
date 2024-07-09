@@ -157,13 +157,12 @@ IFarm:AddToggle({
 		print(Value)
 		while true do
 			if Value == true then
+ 				wait()
 				local LP = game.Players.LocalPlayer
-				while Value == true do wait()
 					local success, err = pcall(function()
 						for i,v in pairs(workspace:GetChildren()) do
 							if v:IsA("Tool") then
 								firetouchinterest(LP.Character.HumanoidRootPart,v.Handle,0)
-							end
 						end
 					end)
 				end
@@ -181,12 +180,11 @@ IFarm:AddToggle({
 		while true do
 			if Value == true then
 				local LP = game.Players.LocalPlayer
-				while Value == true do wait()
+				 wait()
 					local success, err = pcall(function()
 						for i,v in pairs(workspace:GetChildren()) do
 							if v:IsA("Tool") and v.Name ~= "Arrow" and v.Name ~= "Rokakaka Fruit" then
 								firetouchinterest(LP.Character.HumanoidRootPart,v.Handle,0)
-							end
 						end
 					end)
 				end
@@ -201,7 +199,7 @@ SFarm:AddToggle({
 	Callback = function(Value)
 		print(Value)
 		while true do
-			if Value == true then
+			if Value == true then wait()
 				if lplr.Character:FindFirstChild("Arrow") then 
 					if lplr.Character.Arrow:IsA("Tool") then
 						lplr.Arrow.Activated:Connect(function(on)
@@ -294,11 +292,6 @@ Misc:AddButton({
     GuiDestroy()
 end    
 })
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
 
 
 OrionLib:Init()

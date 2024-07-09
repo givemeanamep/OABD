@@ -277,8 +277,7 @@ IFarm:AddToggle({
 })]]
 
 local function GuiDestroy()
-	Window:Destroy()
-	OrionLib:Destroy()
+Window:Destroy()
 end
 
 

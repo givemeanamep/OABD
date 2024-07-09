@@ -3,8 +3,8 @@ local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shl
 local lplr= game.Players.LocalPlayer
 local Window = OrionLib:MakeWindow({Name = "NOOBVN233 VIP PRO ULTRA", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
-local Cred = Window:MakeTab({
-	Name = "Credits",
+local Misc = Window:MakeTab({
+	Name = "Misc",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -30,30 +30,27 @@ local NPC = Comb:AddSection({
 local Plr = Comb:AddSection({
 	Name = "Players"
 })
+local Cred = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 NPC:AddToggle({
 	Name = "Kill DIO",
 	Default = false,
 	Callback = function(Value)
-		print(Value)
-	  while Value == true do wait(.3)
-	      if workspace:FindFirstChild("DIO") then
-	    local args = {
-    [1] = workspace.DIO:WaitForChild("Humanoid"),
-    [2] = CFrame.new(-1740.968017578125, -28.755130767822266, -0.9379574060440063, 0.34258121252059937, -0.05361337214708328, 0.04821697622537613, -0.024256348609924316, -0.9985424280166626, -0.34338220953941345, -0.9391751289367676, 0.006233200430870056),
-    [3] = 70,
-    [4] = 0,
-    [5] = Vector3.new(-2.925577163696289, 040868066251277924, 9.56239128112793),
-    [6] = "rbxassetid://241837157",
-    [7] = 0,
-    [8] = Color3.new(255, 255, 255),
-    [9] = "rbxassetid://260430079",
-    [10] = 0,
-    [11] = 0
-}
+		while true do
+			if Value == true then wait(.3)
+				if workspace:FindFirstChild("DIO") then
+					local args = {
+						[1] = workspace.DIO:WaitForChild("Humanoid"),
+						[2] = math.huge,
+					}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Damage"):FireServer(unpack(args))
-	  end
-	end
+					game:GetService("ReplicatedStorage"):WaitForChild("AnubisDamage"):FireServer(unpack(args))
+				end
+			end
+		end
 	end
 })
 
@@ -64,27 +61,20 @@ NPC:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-	    while Value == true do wait(.3)
-	    for i,v in pairs (workspace:GetChildren()) do
-	      if game.Players:GetPlayerFromCharacter(v) == nil  and v.Name ~= game.Players.LocalPlayer.Name then
-	        local args = {
-    [1] = v:WaitForChild("Humanoid"),
-    [2] = CFrame.new(0,0,0),
-	          [3] = 70,
-    [4] = 0,
-    [5] = Vector3.new(0,0,0),
-	          [6] = "rbxassetid://241837157",
-    [7] = 0,
-    [8] = Color3.new(255, 255, 255),
-    [9] = "rbxassetid://260430079",
-    [10] = 0,
-    [11] = 0
-}
+		while true do
+			if Value == true then wait(.3)
+				for i,v in pairs (workspace:GetChildren()) do
+					if game.Players:GetPlayerFromCharacter(v) == nil  and v.Name ~= game.Players.LocalPlayer.Name then
+						local args = {
+							[1] = v:WaitForChild("Humanoid"),
+							[2] = math.huge
+						}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Damage"):FireServer(unpack(args))
-	      end
-	    end
-	  end
+						game:GetService("ReplicatedStorage"):WaitForChild("AnubisDamage"):FireServer(unpack(args))
+					end
+				end
+			end
+		end
 	end    
 })
 
@@ -93,30 +83,24 @@ Plr:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-	    while Value == true do wait(.3)
-	    for i,v in pairs (workspace:GetChildren()) do
-	      if game.Players:GetPlayerFromCharacter(v) then
-	        if v.Name ~= game.Players.LocalPlayer.Name then
-	        local args = {
-    [1] = v:WaitForChild("Humanoid"),
-    [2] = CFrame.new(-1740968017578125, 9.464856147766113, -28.755130767822266, -0.9379574060440063, 0.34258121252059937, -0.05361337214708328, 0.04821697622537613, -0.024256348609924316, -0.9985424280166626, -0.34338220953941345, -0.9391751289367676, 0.006233200430870056),
-    [3] = 70,
-    [4] = 0,
-    [5] = Vector3.new(-2925577163696289, 0.040868066251277924, 9.56239128112793),
-    [6] = "rbxassetid://241837157",
-    [7] = 0,
-    [8] = Color3.new(255, 255, 255),
-    [9] = "rbxassetid://260430079",
-    [10] = 0,
-    [11] = 0
-}
+		while true do
+			if Value == true then
+				wait(.3)
+				for i,v in pairs (workspace:GetChildren()) do
+					if game.Players:GetPlayerFromCharacter(v) then
+						if v.Name ~= game.Players.LocalPlayer.Name then
+							local args = {
+								[1] = v:WaitForChild("Humanoid"),
+								[2] = math.huge
+							}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Damage"):FireServer(unpack(args))
-	    end
-	  end
-	  end
-	  end
-	end    
+							game:GetService("ReplicatedStorage"):WaitForChild("AnubisDamage"):FireServer(unpack(args))
+						end
+					end
+				end
+			end
+		end    
+	end 
 })
 
 
@@ -126,40 +110,43 @@ Plr:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-	    while Value == true do wait(.3)
-	    for i,v in pairs (workspace:GetChildren()) do
-	      if game.Players:GetPlayerFromCharacter(v) then
-	        if v.Name ~= game.Players.LocalPlayer.Name then 
-	        local args = {
-    [1] = v:WaitForChild("Humanoid")
-}
+		while true do
+			if Value == true then wait(.3)
+				for i,v in pairs (workspace:GetChildren()) do
+					if game.Players:GetPlayerFromCharacter(v) then
+						if v.Name ~= game.Players.LocalPlayer.Name then 
+							local args = {
+								[1] = v:WaitForChild("Humanoid")
+							}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Knock"):FireServer(unpack(args))
-	      end
-	    end
-	  end
-	end
-	end
+							game:GetService("ReplicatedStorage"):WaitForChild("Knock"):FireServer(unpack(args))
+						end
+					end
+				end
+			end
+		end end
 })
 
 NPC:AddToggle({
 	Name = "Knock all NPC",
 	Default = false,
 	Callback = function(Value)
-		print(Value)
-	    while Value == true do wait(.3)
-	    for i,v in pairs (workspace:GetChildren()) do
-	      if v.Name ~= game.Players.LocalPlayer.Name then return end
-	      if game.Players:GetPlayerFromCharacter(v) == nil then
-	        local args = {
-    [1] = v:WaitForChild("Humanoid")
-}
+		while true do
+			if Value == true then
+				wait(.3)
+				for i,v in pairs (workspace:GetChildren()) do
+					if v.Name ~= game.Players.LocalPlayer.Name then return end
+					if game.Players:GetPlayerFromCharacter(v) == nil then
+						local args = {
+							[1] = v:WaitForChild("Humanoid")
+						}
 
-game:GetService("ReplicatedStorage"):WaitForChild("Knock"):FireServer(unpack(args))
-	      end
-	    end
-	  end
-	end    
+						game:GetService("ReplicatedStorage"):WaitForChild("Knock"):FireServer(unpack(args))
+					end
+				end
+			end
+		end   
+	end
 })
 
 
@@ -168,17 +155,20 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-	  
-	  local LP = game.Players.LocalPlayer
-	  while Value == true do wait()
-local success, err = pcall(function()
-for i,v in pairs(workspace:GetChildren()) do
-if v:IsA("Tool") then
-firetouchinterest(LP.Character.HumanoidRootPart,v.Handle,0)
-end
-end
-end)
-end
+		while true do
+			if Value == true then
+				local LP = game.Players.LocalPlayer
+				while Value == true do wait()
+					local success, err = pcall(function()
+						for i,v in pairs(workspace:GetChildren()) do
+							if v:IsA("Tool") then
+								firetouchinterest(LP.Character.HumanoidRootPart,v.Handle,0)
+							end
+						end
+					end)
+				end
+			end
+		end
 	end
 })
 
@@ -188,17 +178,20 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-	  
-	  local LP = game.Players.LocalPlayer
-while Value == true do wait()
-local success, err = pcall(function()
-for i,v in pairs(workspace:GetChildren()) do
-if v:IsA("Tool") and v.Name ~= "Arrow" and v.Name ~= "Rokakaka Fruit" then
-firetouchinterest(LP.Character.HumanoidRootPart,v.Handle,0)
-end
-end
-end)
-end
+		while true do
+			if Value == true then
+				local LP = game.Players.LocalPlayer
+				while Value == true do wait()
+					local success, err = pcall(function()
+						for i,v in pairs(workspace:GetChildren()) do
+							if v:IsA("Tool") and v.Name ~= "Arrow" and v.Name ~= "Rokakaka Fruit" then
+								firetouchinterest(LP.Character.HumanoidRootPart,v.Handle,0)
+							end
+						end
+					end)
+				end
+			end
+		end
 	end
 })
 
@@ -207,24 +200,25 @@ SFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-	  while Value == true do 
-	    wait()
-	    if lplr.Character:FindFirstChild("Arrow") then 
-	      if lplr.Character.Arrow:IsA("Tool") then
-	    lplr.Arrow.Activated:Connect(function(on)
-	    game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
-	  end)
-	    end
-	  else if lplr.Character:FindFirstChild("Rokakaka Fruit") then
-	    if lplr.Character["Rokakaka Fruit"]:IsA("Tool") then
-	      lplr.Character["Rokakaka Fruit"].Activated:Connect(function(on1)
-	        game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
-	      end)
-	    end
-	  end
-	  end
-	    end
-  end
+		while true do
+			if Value == true then
+				if lplr.Character:FindFirstChild("Arrow") then 
+					if lplr.Character.Arrow:IsA("Tool") then
+						lplr.Arrow.Activated:Connect(function(on)
+							game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
+						end)
+					end
+				else if lplr.Character:FindFirstChild("Rokakaka Fruit") then
+						if lplr.Character["Rokakaka Fruit"]:IsA("Tool") then
+							lplr.Character["Rokakaka Fruit"].Activated:Connect(function(on1)
+								game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
+							end)
+						end
+					end
+				end
+			end
+		end
+	end
 })
 
 IFarm:AddToggle({
@@ -232,87 +226,79 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-	  local v= Value 
-	  while v == true do
-	    wait()
-	    tool = lplr.Character:FindFirstChildWhichIsA("Tool")
-	    if tool and tool.Name ~= "Rokakaka Fruit" then
-	    tool.Activated:Connect(function(act)
-	      game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
-	      print('oye')
-	    end)
-	    end
-	  end
+		while true do
+			if Value == true then
+				wait()
+				tool = lplr.Character:FindFirstChildWhichIsA("Tool")
+				if tool and tool.Name ~= "Rokakaka Fruit" then
+					tool.Activated:Connect(function(act)
+						game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
+						print('oye')
+					end)
+				end
+			end
+		end
 	end
 })
 
---[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
-]]
+IFarm:AddToggle({
+	Name = "Banknote auto farm",
+	Default = false,
+	Callback = function(Value)
+		print(Value)
+		while true do
+			if Value == true then
+				if game.Players.LocalPlayer.Backpack:FindFirstChild("Banknote") then
+					for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+						if v.Name == 'Banknote' and v:IsA("Tool") then
+							game.Players.LocalPlayer.Character.Humanoid:Equiptool(v)
+							if game.Players.LocalPlayer.Character:FindFirstChild("Banknote") then
+								wait(.3)
+								v:Activate()
+							end
+						end
+					end
+				end
+
+
+			end
+		end
+	end
+})
+--[[Misc:AddButton({
+	Name = "Safe Zone",
+	Default = false,
+	Callback = function(Value)
+		wait()
+	tool = lplr.Character:FindFirstChildWhichIsA("Tool")
+	if tool and tool.Name ~= "Rokakaka Fruit" then
+					tool.Activated:Connect(function(act)
+						game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
+						print('oye')
+					end)
+				end
+			end
+		end
+	end
+})]]
+
+local function GuiDestroy()
+	Window:Destroy()
+	OrionLib:Destroy()
+end
+
+
+Misc:AddButton({
+	Name = "Destroy Gui!!!",
+	Callback = function()
+    GuiDestroy()
+end    
+})
 
 --[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
 ]]
 
---[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
-]]
---[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
-]]
---[[
-Name = <string> - The name of the toggle.
-Default = <bool> - The default value of the toggle.
-Callback = <function> - The function of the toggle.
-]]
 
---[[
-Name = <string> - The name of the section.
-]]
---[[
-Name = <string> - The name of the section.
-]]
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
-]]
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
-]]
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
-]]
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
-]]
---[[
-Name = <string> - The name of the tab.
-Icon = <string> - The icon of the tab.
-PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
-]]
---[[
-Name = <string> - The name of the UI.
-HidePremium = <bool> - Whether or not the user details shows Premium status or not.
-SaveConfig = <bool> - Toggles the config saving in the UI.
-ConfigFolder = <string> - The name of the folder where the configs are saved.
-IntroEnabled = <bool> - Whether or not to show the intro animation.
-IntroText = <string> - Text to show in the intro animation.
-IntroIcon = <string> - URL to the image you want to use in the intro animation.
-Icon = <string> - URL to the image you want displayed on the window.
-CloseCallback = <function> - Function to execute when the window is closed.
-]]
+OrionLib:Init()

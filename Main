@@ -259,13 +259,4 @@ IFarm:AddToggle({
 		end
 	end
 })
-
-Misc:AddButton({
-	Name = "Destroy Gui!!!",
-	Callback = function()
-    Window:Destroy()
-end    
-})
-
-
 OrionLib:Init()

@@ -39,19 +39,16 @@ NPC:AddToggle({
 	Name = "Kill DIO",
 	Default = false,
 	Callback = function(Value)
-		while true do wait(.3)
-			if Value == true then 
-				if workspace:FindFirstChild("DIO") then
+    local v = Value
+		while v and workspace:FindFirstChild('DIO') do wait(.3)
 					local args = {
 						[1] = workspace.DIO:WaitForChild("Humanoid"),
 						[2] = math.huge,
 					}
 
 					game:GetService("ReplicatedStorage"):WaitForChild("AnubisDamage"):FireServer(unpack(args))
-				end
-			end
-		end
 	end
+end
 })
 
 
@@ -60,18 +57,17 @@ NPC:AddToggle({
 	Name = "Kill All NPC(but dummy)",
 	Default = false,
 	Callback = function(Value)
+    local kan = Value
 		print(Value)
-		while true do wait(.3)
-			if Value == true then 
+		while kan do wait(.3)
 				for i,v in pairs (workspace:GetChildren()) do
-					if game.Players:GetPlayerFromCharacter(v) == nil  and v.Name ~= game.Players.LocalPlayer.Name then
+					if game.Players:GetPlayerFromCharacter(v) == nil and v:FindFirstChild("AI") then
 						local args = {
 							[1] = v:WaitForChild("Humanoid"),
 							[2] = math.huge
 						}
 
 						game:GetService("ReplicatedStorage"):WaitForChild("AnubisDamage"):FireServer(unpack(args))
-					end
 				end
 			end
 		end
@@ -83,8 +79,8 @@ Plr:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do wait(.3)
-			if Value == true then
+        local kap = Value
+		while kap do wait(.3)
 				for i,v in pairs (workspace:GetChildren()) do
 					if game.Players:GetPlayerFromCharacter(v) then
 						if v.Name ~= game.Players.LocalPlayer.Name then
@@ -94,7 +90,6 @@ Plr:AddToggle({
 							}
 
 							game:GetService("ReplicatedStorage"):WaitForChild("AnubisDamage"):FireServer(unpack(args))
-						end
 					end
 				end
 			end
@@ -109,8 +104,8 @@ Plr:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do wait(.2)
-			if Value == true then 
+        local kapp = Value
+		while kapp do wait(.2)
 				for i,v in pairs (workspace:GetChildren()) do
 					if game.Players:GetPlayerFromCharacter(v) then
 						if v.Name ~= game.Players.LocalPlayer.Name then 
@@ -119,7 +114,6 @@ Plr:AddToggle({
 							}
 
 							game:GetService("ReplicatedStorage"):WaitForChild("Knock"):FireServer(unpack(args))
-						end
 					end
 				end
 			end
@@ -130,21 +124,19 @@ NPC:AddToggle({
 	Name = "Knock all NPC",
 	Default = false,
 	Callback = function(Value)
-		while true do wait(.2)
-			if Value == true then
+    local kann = Value
+		while kann do wait(.2)
 				for i,v in pairs (workspace:GetChildren()) do
-					if v.Name ~= game.Players.LocalPlayer.Name then return end
-					if game.Players:GetPlayerFromCharacter(v) == nil then
+					if game.Players:GetPlayerFromCharacter(v) == nil and v:FindFirstChild("Humanoid") then 
 						local args = {
 							[1] = v:WaitForChild("Humanoid")
 						}
 
 						game:GetService("ReplicatedStorage"):WaitForChild("Knock"):FireServer(unpack(args))
-					end
-				end
-			end
-		end   
+             end
+        end   
 	end
+end
 })
 
 
@@ -153,19 +145,18 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do wait()
-			if Value == true then
+    local ifa = Value
+		while ifa do wait()
 				local LP = game.Players.LocalPlayer
 					local success, err = pcall(function()
 						for i,v in pairs(workspace:GetChildren()) do
 							if v:IsA("Tool") then
 								firetouchinterest(LP.Character.HumanoidRootPart,v.Handle,0)
 						end
-					end)
-				end
+					end
+				end)
 			end
-		end
-	end
+        end
 })
 
 
@@ -174,17 +165,16 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do wait()
-			if Value == true then
+    local itf = Value
+		while itf do wait()
 				local LP = game.Players.LocalPlayer
 					local success, err = pcall(function()
 						for i,v in pairs(workspace:GetChildren()) do
 							if v:IsA("Tool") and v.Name ~= "Arrow" and v.Name ~= "Rokakaka Fruit" then
 								firetouchinterest(LP.Character.HumanoidRootPart,v.Handle,0)
-						end
-					end)
+					end
 				end
-			end
+			end)
 		end
 	end
 })
@@ -194,25 +184,18 @@ SFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do wait()
-			if Value == true then
-				if lplr.Character:FindFirstChild("Arrow") then 
-					if lplr.Character.Arrow:IsA("Tool") then
-						lplr.Arrow.Activated:Connect(function(on)
-							game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
-						end)
-					end
-				else if lplr.Character:FindFirstChild("Rokakaka Fruit") then
-						if lplr.Character["Rokakaka Fruit"]:IsA("Tool") then
-							lplr.Character["Rokakaka Fruit"].Activated:Connect(function(on1)
-								game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
-							end)
-						end
-					end
-				end
-			end
+    local fsf = Value
+		while fsf do wait()
+			wait()
+				tool = lplr.Character:FindFirstChildWhichIsA("Tool")
+				if tool and tool.Name == "Rokakaka Fruit" and tool.Name == "Arrow" then
+					tool.Activated:Connect(function(act)
+						game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
+						print('oye')
+			end)
 		end
 	end
+end
 })
 
 IFarm:AddToggle({
@@ -220,8 +203,8 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do wait()
-			if Value == true then
+    local ftt = Value
+		while ftt do wait()
 				wait()
 				tool = lplr.Character:FindFirstChildWhichIsA("Tool")
 				if tool and tool.Name ~= "Rokakaka Fruit" then
@@ -229,7 +212,6 @@ IFarm:AddToggle({
 						game:GetService("ReplicatedStorage"):WaitForChild("Items"):FireServer()
 						print('oye')
 					end)
-				end
 			end
 		end
 	end
@@ -240,22 +222,20 @@ IFarm:AddToggle({
 	Default = false,
 	Callback = function(Value)
 		print(Value)
-		while true do wait()
-			if Value == true then 
+    local bna = Value
+		while bna do wait()
 				if game.Players.LocalPlayer.Backpack:FindFirstChild("Banknote") then
 					for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-						if v.Name == 'Banknote' and v:IsA("Tool") then
-							game.Players.LocalPlayer.Character.Humanoid:Equiptool(v)
-							if game.Players.LocalPlayer.Character:FindFirstChild("Banknote") then
-								wait(.3)
-								v:Activate()
-							end
+						if v.Name == 'Banknote' then
+                        repeat wait() game.Players.LocalPlayer.Character.Humanoid:Equiptool(v)
+                            
+						until game.Players.LocalPlayer.Character:FindFirstChild("Banknote") ~= nil 
+								wait(.2)
+							game.Players.LocalPlayer.Character:FindFirstChild("Banknote"):Activate()
 						end
 					end
-				end
-
+                end
 
 			end
 		end
-	end
 })
